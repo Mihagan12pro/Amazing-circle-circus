@@ -22,7 +22,7 @@
 
 #include "Amazing circle circusDoc.h"
 #include "Amazing circle circusView.h"
-
+#include"CCircleEditDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -143,8 +143,7 @@ CAmazingcirclecircusDoc* CAmazingcirclecircusView::GetDocument() const // вст
 
 void CAmazingcirclecircusView::EVENT_HANDLER_AddCirclesBtn()
 {
-
-	
+	// TODO: добавьте свой код обработчика команд
 }
 
 
@@ -157,4 +156,9 @@ void CAmazingcirclecircusView::EVENT_HANDLER_DeleteCirclesBtn()
 void CAmazingcirclecircusView::EVENT_HANDLER_ChangeCirclesBtn()
 {
 	// TODO: добавьте свой код обработчика команд
+
+	CCircleEditDlg editorDlg;
+
+	
+	editorDlg.DoModal();
 }
