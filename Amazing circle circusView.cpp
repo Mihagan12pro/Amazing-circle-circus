@@ -39,6 +39,9 @@ BEGIN_MESSAGE_MAP(CAmazingcirclecircusView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CAmazingcirclecircusView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
+	ON_COMMAND(ID_AddCirclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_AddCirclesBtn)
+	ON_COMMAND(ID_DeleteCIrclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_DeleteCirclesBtn)
+	ON_COMMAND(ID_ChangeCirclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_ChangeCirclesBtn)
 END_MESSAGE_MAP()
 
 // Создание или уничтожение CAmazingcirclecircusView
@@ -136,3 +139,22 @@ CAmazingcirclecircusDoc* CAmazingcirclecircusView::GetDocument() const // вст
 
 
 // Обработчики сообщений CAmazingcirclecircusView
+
+
+void CAmazingcirclecircusView::EVENT_HANDLER_AddCirclesBtn()
+{
+
+	
+}
+
+
+void CAmazingcirclecircusView::EVENT_HANDLER_DeleteCirclesBtn()
+{
+	// TODO: добавьте свой код обработчика команд
+}
+
+
+void CAmazingcirclecircusView::EVENT_HANDLER_ChangeCirclesBtn()
+{
+	// TODO: добавьте свой код обработчика команд
+}

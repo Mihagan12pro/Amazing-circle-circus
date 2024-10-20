@@ -53,6 +53,10 @@ protected:
 	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void EVENT_HANDLER_AddCirclesBtn();
+	afx_msg void EVENT_HANDLER_DeleteCirclesBtn();
+	afx_msg void EVENT_HANDLER_ChangeCirclesBtn();
 };
 
 #ifndef _DEBUG  // версия отладки в Amazing circle circusView.cpp
