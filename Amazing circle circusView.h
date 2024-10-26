@@ -15,15 +15,15 @@
 #pragma once
 
 
-class CAmazingcirclecircusView : public CView
+class CCircleCircusView : public CView
 {
 protected: // создать только из сериализации
-	CAmazingcirclecircusView() noexcept;
-	DECLARE_DYNCREATE(CAmazingcirclecircusView)
+	CCircleCircusView() noexcept;
+	DECLARE_DYNCREATE(CCircleCircusView)
 
 // Атрибуты
 public:
-	CAmazingcirclecircusDoc* GetDocument() const;
+	CCircleCircusDoc* GetDocument() const;
 
 // Операции
 public:
@@ -39,7 +39,7 @@ protected:
 
 // Реализация
 public:
-	virtual ~CAmazingcirclecircusView();
+	virtual ~CCircleCircusView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

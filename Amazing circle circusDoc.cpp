@@ -30,25 +30,25 @@
 
 // CAmazingcirclecircusDoc
 
-IMPLEMENT_DYNCREATE(CAmazingcirclecircusDoc, CDocument)
+IMPLEMENT_DYNCREATE(CCircleCircusDoc, CDocument)
 
-BEGIN_MESSAGE_MAP(CAmazingcirclecircusDoc, CDocument)
+BEGIN_MESSAGE_MAP(CCircleCircusDoc, CDocument)
 END_MESSAGE_MAP()
 
 
 // Создание или уничтожение CAmazingcirclecircusDoc
 
-CAmazingcirclecircusDoc::CAmazingcirclecircusDoc() noexcept
+CCircleCircusDoc::CCircleCircusDoc() noexcept
 {
 	// TODO: добавьте код для одноразового вызова конструктора
 
 }
 
-CAmazingcirclecircusDoc::~CAmazingcirclecircusDoc()
+CCircleCircusDoc::~CCircleCircusDoc()
 {
 }
 
-BOOL CAmazingcirclecircusDoc::OnNewDocument()
+BOOL CCircleCircusDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -64,7 +64,7 @@ BOOL CAmazingcirclecircusDoc::OnNewDocument()
 
 // Сериализация CAmazingcirclecircusDoc
 
-void CAmazingcirclecircusDoc::Serialize(CArchive& ar)
+void CCircleCircusDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -133,12 +133,12 @@ void CAmazingcirclecircusDoc::SetSearchContent(const CString& value)
 // Диагностика CAmazingcirclecircusDoc
 
 #ifdef _DEBUG
-void CAmazingcirclecircusDoc::AssertValid() const
+void CCircleCircusDoc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CAmazingcirclecircusDoc::Dump(CDumpContext& dc) const
+void CCircleCircusDoc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }

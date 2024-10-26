@@ -24,10 +24,10 @@
 // Сведения о реализации этого класса: Amazing circle circus.cpp
 //
 
-class CAmazingcirclecircusApp : public CWinAppEx
+class CCircleCircusApp : public CWinAppEx
 {
 public:
-	CAmazingcirclecircusApp() noexcept;
+	CCircleCircusApp() noexcept;
 
 
 // Переопределение
@@ -47,4 +47,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CAmazingcirclecircusApp theApp;
+extern CCircleCircusApp theApp;

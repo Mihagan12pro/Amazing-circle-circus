@@ -16,11 +16,11 @@
 #pragma once
 
 
-class CAmazingcirclecircusDoc : public CDocument
+class CCircleCircusDoc : public CDocument
 {
 protected: // создать только из сериализации
-	CAmazingcirclecircusDoc() noexcept;
-	DECLARE_DYNCREATE(CAmazingcirclecircusDoc)
+	CCircleCircusDoc() noexcept;
+	DECLARE_DYNCREATE(CCircleCircusDoc)
 
 // Атрибуты
 public:
@@ -39,7 +39,7 @@ public:
 
 // Реализация
 public:
-	virtual ~CAmazingcirclecircusDoc();
+	virtual ~CCircleCircusDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

@@ -29,8 +29,8 @@
 
 // CAmazingcirclecircusApp
 
-BEGIN_MESSAGE_MAP(CAmazingcirclecircusApp, CWinAppEx)
-	ON_COMMAND(ID_APP_ABOUT, &CAmazingcirclecircusApp::OnAppAbout)
+BEGIN_MESSAGE_MAP(CCircleCircusApp, CWinAppEx)
+	ON_COMMAND(ID_APP_ABOUT, &CCircleCircusApp::OnAppAbout)
 	// Стандартные команды по работе с файлами документов
 	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
 	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
@@ -41,7 +41,7 @@ END_MESSAGE_MAP()
 
 // Создание CAmazingcirclecircusApp
 
-CAmazingcirclecircusApp::CAmazingcirclecircusApp() noexcept
+CCircleCircusApp::CCircleCircusApp() noexcept
 {
 	m_bHiColorIcons = TRUE;
 
@@ -66,12 +66,12 @@ CAmazingcirclecircusApp::CAmazingcirclecircusApp() noexcept
 
 // Единственный объект CAmazingcirclecircusApp
 
-CAmazingcirclecircusApp theApp;
+CCircleCircusApp theApp;
 
 
 // Инициализация CAmazingcirclecircusApp
 
-BOOL CAmazingcirclecircusApp::InitInstance()
+BOOL CCircleCircusApp::InitInstance()
 {
 	// InitCommonControlsEx() требуются для Windows XP, если манифест
 	// приложения использует ComCtl32.dll версии 6 или более поздней версии для включения
@@ -127,9 +127,9 @@ BOOL CAmazingcirclecircusApp::InitInstance()
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
-		RUNTIME_CLASS(CAmazingcirclecircusDoc),
+		RUNTIME_CLASS(CCircleCircusDoc),
 		RUNTIME_CLASS(CMainFrame),       // основное окно рамки SDI
-		RUNTIME_CLASS(CAmazingcirclecircusView));
+		RUNTIME_CLASS(CCircleCircusView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -162,7 +162,7 @@ BOOL CAmazingcirclecircusApp::InitInstance()
 	return TRUE;
 }
 
-int CAmazingcirclecircusApp::ExitInstance()
+int CCircleCircusApp::ExitInstance()
 {
 	//TODO: обработайте дополнительные ресурсы, которые могли быть добавлены
 	AfxOleTerm(FALSE);
@@ -206,7 +206,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // Команда приложения для запуска диалога
-void CAmazingcirclecircusApp::OnAppAbout()
+void CCircleCircusApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
@@ -214,7 +214,7 @@ void CAmazingcirclecircusApp::OnAppAbout()
 
 // Методы загрузки или сохранения настроек CAmazingcirclecircusApp
 
-void CAmazingcirclecircusApp::PreLoadState()
+void CCircleCircusApp::PreLoadState()
 {
 	BOOL bNameValid;
 	CString strName;
@@ -223,11 +223,11 @@ void CAmazingcirclecircusApp::PreLoadState()
 	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
 }
 
-void CAmazingcirclecircusApp::LoadCustomState()
+void CCircleCircusApp::LoadCustomState()
 {
 }
 
-void CAmazingcirclecircusApp::SaveCustomState()
+void CCircleCircusApp::SaveCustomState()
 {
 }
 

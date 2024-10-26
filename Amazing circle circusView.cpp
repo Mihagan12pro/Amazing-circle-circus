@@ -30,33 +30,33 @@
 
 // CAmazingcirclecircusView
 
-IMPLEMENT_DYNCREATE(CAmazingcirclecircusView, CView)
+IMPLEMENT_DYNCREATE(CCircleCircusView, CView)
 
-BEGIN_MESSAGE_MAP(CAmazingcirclecircusView, CView)
+BEGIN_MESSAGE_MAP(CCircleCircusView, CView)
 	// Стандартные команды печати
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CAmazingcirclecircusView::OnFilePrintPreview)
+	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CCircleCircusView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
-	ON_COMMAND(ID_AddCirclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_AddCirclesBtn)
-	ON_COMMAND(ID_DeleteCIrclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_DeleteCirclesBtn)
-	ON_COMMAND(ID_ChangeCirclesBtn, &CAmazingcirclecircusView::EVENT_HANDLER_ChangeCirclesBtn)
+	ON_COMMAND(ID_AddCirclesBtn, &CCircleCircusView::EVENT_HANDLER_AddCirclesBtn)
+	ON_COMMAND(ID_DeleteCIrclesBtn, &CCircleCircusView::EVENT_HANDLER_DeleteCirclesBtn)
+	ON_COMMAND(ID_ChangeCirclesBtn, &CCircleCircusView::EVENT_HANDLER_ChangeCirclesBtn)
 END_MESSAGE_MAP()
 
 // Создание или уничтожение CAmazingcirclecircusView
 
-CAmazingcirclecircusView::CAmazingcirclecircusView() noexcept
+CCircleCircusView::CCircleCircusView() noexcept
 {
 	// TODO: добавьте код создания
 
 }
 
-CAmazingcirclecircusView::~CAmazingcirclecircusView()
+CCircleCircusView::~CCircleCircusView()
 {
 }
 
-BOOL CAmazingcirclecircusView::PreCreateWindow(CREATESTRUCT& cs)
+BOOL CCircleCircusView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: изменить класс Window или стили посредством изменения
 	//  CREATESTRUCT cs
@@ -66,9 +66,10 @@ BOOL CAmazingcirclecircusView::PreCreateWindow(CREATESTRUCT& cs)
 
 // Рисование CAmazingcirclecircusView
 
-void CAmazingcirclecircusView::OnDraw(CDC* /*pDC*/)
+void CCircleCircusView
+::OnDraw(CDC* /*pDC*/)
 {
-	CAmazingcirclecircusDoc* pDoc = GetDocument();
+	CCircleCircusDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
@@ -80,36 +81,36 @@ void CAmazingcirclecircusView::OnDraw(CDC* /*pDC*/)
 // Печать CAmazingcirclecircusView
 
 
-void CAmazingcirclecircusView::OnFilePrintPreview()
+void CCircleCircusView::OnFilePrintPreview()
 {
 #ifndef SHARED_HANDLERS
 	AFXPrintPreview(this);
 #endif
 }
 
-BOOL CAmazingcirclecircusView::OnPreparePrinting(CPrintInfo* pInfo)
+BOOL CCircleCircusView::OnPreparePrinting(CPrintInfo* pInfo)
 {
 	// подготовка по умолчанию
 	return DoPreparePrinting(pInfo);
 }
 
-void CAmazingcirclecircusView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CCircleCircusView::OnBeginPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: добавьте дополнительную инициализацию перед печатью
 }
 
-void CAmazingcirclecircusView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
+void CCircleCircusView::OnEndPrinting(CDC* /*pDC*/, CPrintInfo* /*pInfo*/)
 {
 	// TODO: добавьте очистку после печати
 }
 
-void CAmazingcirclecircusView::OnRButtonUp(UINT /* nFlags */, CPoint point)
+void CCircleCircusView::OnRButtonUp(UINT /* nFlags */, CPoint point)
 {
 	ClientToScreen(&point);
 	OnContextMenu(this, point);
 }
 
-void CAmazingcirclecircusView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
+void CCircleCircusView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 {
 #ifndef SHARED_HANDLERS
 	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
@@ -120,20 +121,20 @@ void CAmazingcirclecircusView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 // Диагностика CAmazingcirclecircusView
 
 #ifdef _DEBUG
-void CAmazingcirclecircusView::AssertValid() const
+void CCircleCircusView::AssertValid() const
 {
 	CView::AssertValid();
 }
 
-void CAmazingcirclecircusView::Dump(CDumpContext& dc) const
+void CCircleCircusView::Dump(CDumpContext& dc) const
 {
 	CView::Dump(dc);
 }
 
-CAmazingcirclecircusDoc* CAmazingcirclecircusView::GetDocument() const // встроена неотлаженная версия
+CCircleCircusDoc* CCircleCircusView::GetDocument() const // встроена неотлаженная версия
 {
-	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CAmazingcirclecircusDoc)));
-	return (CAmazingcirclecircusDoc*)m_pDocument;
+	ASSERT(m_pDocument->IsKindOf(RUNTIME_CLASS(CCircleCircusDoc)));
+	return (CCircleCircusDoc*)m_pDocument;
 }
 #endif //_DEBUG
 
@@ -141,19 +142,19 @@ CAmazingcirclecircusDoc* CAmazingcirclecircusView::GetDocument() const // вст
 // Обработчики сообщений CAmazingcirclecircusView
 
 
-void CAmazingcirclecircusView::EVENT_HANDLER_AddCirclesBtn()
+void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()
 {
 	// TODO: добавьте свой код обработчика команд
 }
 
 
-void CAmazingcirclecircusView::EVENT_HANDLER_DeleteCirclesBtn()
+void CCircleCircusView::EVENT_HANDLER_DeleteCirclesBtn()
 {
 	// TODO: добавьте свой код обработчика команд
 }
 
 
-void CAmazingcirclecircusView::EVENT_HANDLER_ChangeCirclesBtn()
+void CCircleCircusView::EVENT_HANDLER_ChangeCirclesBtn()
 {
 	// TODO: добавьте свой код обработчика команд
 
