@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Circle class">
+      <UniqueIdentifier>{abb865f3-8207-49a2-a145-f9cd74782329}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Amazing circle circus.h">
@@ -45,6 +48,9 @@
     <ClInclude Include="CCircleEditDlg.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="CCircle.h">
+      <Filter>Circle class</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Amazing circle circus.cpp">
@@ -67,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="CCircleEditDlg.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CCircle.cpp">
+      <Filter>Circle class</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

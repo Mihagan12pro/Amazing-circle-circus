@@ -188,6 +188,7 @@
     <ClInclude Include="Amazing circle circusDoc.h" />
     <ClInclude Include="Amazing circle circusView.h" />
     <ClInclude Include="calendarbar.h" />
+    <ClInclude Include="CCircle.h" />
     <ClInclude Include="CCircleEditDlg.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="Amazing circle circusDoc.cpp" />
     <ClCompile Include="Amazing circle circusView.cpp" />
     <ClCompile Include="calendarbar.cpp" />
+    <ClCompile Include="CCircle.cpp" />
     <ClCompile Include="CCircleEditDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
