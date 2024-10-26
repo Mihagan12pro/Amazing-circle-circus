@@ -184,7 +184,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Amazing circle circus.h" />
+    <ClInclude Include="CCircleCircus.h" />
     <ClInclude Include="Amazing circle circusDoc.h" />
     <ClInclude Include="Amazing circle circusView.h" />
     <ClInclude Include="calendarbar.h" />

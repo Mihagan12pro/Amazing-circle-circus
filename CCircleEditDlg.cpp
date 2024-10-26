@@ -2,7 +2,7 @@
 //
 
 #include "pch.h"
-#include "Amazing circle circus.h"
+#include "CCircleCircus.h"
 #include "afxdialogex.h"
 #include "CCircleEditDlg.h"
 

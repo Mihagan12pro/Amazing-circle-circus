@@ -16,7 +16,7 @@
 #include "framework.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "Amazing circle circus.h"
+#include "CCircleCircus.h"
 #include "MainFrm.h"
 
 #include "Amazing circle circusDoc.h"

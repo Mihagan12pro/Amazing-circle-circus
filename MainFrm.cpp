@@ -14,7 +14,7 @@
 
 #include "pch.h"
 #include "framework.h"
-#include "Amazing circle circus.h"
+#include "CCircleCircus.h"
 
 #include "MainFrm.h"
 

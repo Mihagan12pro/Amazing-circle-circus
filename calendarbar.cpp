@@ -12,7 +12,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "CalendarBar.h"
-#include "Amazing circle circus.h"
+#include "CCircleCircus.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

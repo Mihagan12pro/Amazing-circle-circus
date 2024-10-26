@@ -18,7 +18,7 @@
 // SHARED_HANDLERS можно определить в обработчиках фильтров просмотра реализации проекта ATL, эскизов
 // и поиска; позволяет совместно использовать код документа в данным проекте.
 #ifndef SHARED_HANDLERS
-#include "Amazing circle circus.h"
+#include "CCircleCircus.h"
 #endif
 
 #include "Amazing circle circusDoc.h"
