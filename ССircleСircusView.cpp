@@ -19,6 +19,7 @@
 #ifndef SHARED_HANDLERS
 #include "CCircleCircus.h"
 #endif
+#include<random>
 
 #include "ССircleСircusDoc.h"
 #include "ССircleСircusView.h"
@@ -67,13 +68,40 @@ BOOL CCircleCircusView::PreCreateWindow(CREATESTRUCT& cs)
 // Рисование CAmazingcirclecircusView
 
 void CCircleCircusView
-::OnDraw(CDC* /*pDC*/)
+::OnDraw(CDC* pDC)
 {
 	CCircleCircusDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
+	CRect rc;
+	GetClientRect(rc);
 
+	int radius = 20; // Радиус круга
+
+	// Рисуем 10 кружков
+	int maxX = rc.Width();
+	int maxY = rc.Height() ;
+	for (int i = 0; i < 10; i++)
+	{
+		std::random_device random_device; // Источник энтропии.
+		std::mt19937 generator(random_device()); // Генератор случайных чисел.
+
+		std::uniform_int_distribution<> distributionX(20, maxX - 20);
+		std::uniform_int_distribution<> distributionY(20, maxY - 20);
+
+		int x = distributionX(generator);
+		int y = distributionY(generator);;
+
+		pDC->Ellipse(x - radius, y - radius, x + radius, y + radius);
+
+
+		//int centerX = startX + i * (2 * radius + spacing); // Вычисляем координаты центра кружка
+		//int centerY = startY;
+
+		// Рисуем кружок
+	//	pDC->Ellipse(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
+	}
 	// TODO: добавьте здесь код отрисовки для собственных данных
 }
 
@@ -142,9 +170,41 @@ CCircleCircusDoc* CCircleCircusView::GetDocument() const // встроена н�
 // Обработчики сообщений CAmazingcirclecircusView
 
 
-void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()
+void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет круги
 {
 	// TODO: добавьте свой код обработчика команд
+
+	CDC* pDC = GetDC();
+	OnDraw(pDC);
+	
+
+	//int R = 9;
+	//int xc = 100;
+	//for (int i = 0; i < 2; i++)
+	//{
+
+	//	int R1 = 0;
+
+	//int yc;//x и y центра круга
+	//	int x1, y1;//x и y смещения
+
+	//		std::random_device random_device; // Источник энтропии.
+	//		std::mt19937 generator(random_device()); // Генератор случайных чисел.
+	// (Здесь берется одно инициализирующее значение, можно брать больше)
+
+	//		std::uniform_int_distribution<> distribution1(0, 5); // Равномерное распределение [10, 20]
+
+	//		xc += 100;
+	//		yc = xc;
+
+	//		
+	//		x1 = distribution1(generator);
+	//		y1 = x1;
+
+	//		
+
+	//	pDC->Ellipse(xc, xc, x1, y1);
+	//}
 }
 
 

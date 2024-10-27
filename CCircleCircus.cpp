@@ -191,6 +191,8 @@ protected:
 // Реализация
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void EventHandler_OnAddCirclesbtn();
 };
 
 CAboutDlg::CAboutDlg() noexcept : CDialogEx(IDD_ABOUTBOX)
@@ -203,6 +205,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	ON_COMMAND(ID_AddCirclesBtn, &CAboutDlg::EventHandler_OnAddCirclesbtn)
 END_MESSAGE_MAP()
 
 // Команда приложения для запуска диалога
@@ -235,3 +238,9 @@ void CCircleCircusApp::SaveCustomState()
 
 
 
+
+
+void CAboutDlg::EventHandler_OnAddCirclesbtn()//Создает кружки
+{
+	// TODO: добавьте свой код обработчика команд
+}
