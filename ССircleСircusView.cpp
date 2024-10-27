@@ -20,8 +20,8 @@
 #include "CCircleCircus.h"
 #endif
 
-#include "Amazing circle circusDoc.h"
-#include "Amazing circle circusView.h"
+#include "ССircleСircusDoc.h"
+#include "ССircleСircusView.h"
 #include"CCircleEditDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW

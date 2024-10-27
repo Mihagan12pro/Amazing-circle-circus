@@ -185,8 +185,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CCircleCircus.h" />
-    <ClInclude Include="Amazing circle circusDoc.h" />
-    <ClInclude Include="Amazing circle circusView.h" />
+    <ClInclude Include="ССircleСircusDoc.h" />
+    <ClInclude Include="ССircleСircusView.h" />
     <ClInclude Include="calendarbar.h" />
     <ClInclude Include="CCircle.h" />
     <ClInclude Include="CCircleEditDlg.h" />
@@ -197,9 +197,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Amazing circle circus.cpp" />
-    <ClCompile Include="Amazing circle circusDoc.cpp" />
-    <ClCompile Include="Amazing circle circusView.cpp" />
+    <ClCompile Include="CCircleCircus.cpp" />
+    <ClCompile Include="ССircleСircusDoc.cpp" />
+    <ClCompile Include="ССircleСircusView.cpp" />
     <ClCompile Include="calendarbar.cpp" />
     <ClCompile Include="CCircle.cpp" />
     <ClCompile Include="CCircleEditDlg.cpp" />

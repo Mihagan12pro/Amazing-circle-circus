@@ -21,7 +21,7 @@
 #include "CCircleCircus.h"
 #endif
 
-#include "Amazing circle circusDoc.h"
+#include "ССircleСircusDoc.h"
 
 #include <propkey.h>
 

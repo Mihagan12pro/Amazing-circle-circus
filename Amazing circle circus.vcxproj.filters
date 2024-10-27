@@ -30,10 +30,10 @@
     <ClInclude Include="MainFrm.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Amazing circle circusDoc.h">
+    <ClInclude Include="ССircleСircusDoc.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Amazing circle circusView.h">
+    <ClInclude Include="ССircleСircusView.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -53,16 +53,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Amazing circle circus.cpp">
+    <ClCompile Include="CCircleCircus.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="MainFrm.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Amazing circle circusDoc.cpp">
+    <ClCompile Include="ССircleСircusDoc.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Amazing circle circusView.cpp">
+    <ClCompile Include="ССircleСircusView.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="calendarbar.cpp">

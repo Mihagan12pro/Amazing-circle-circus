@@ -19,8 +19,8 @@
 #include "CCircleCircus.h"
 #include "MainFrm.h"
 
-#include "Amazing circle circusDoc.h"
-#include "Amazing circle circusView.h"
+#include "ССircleСircusDoc.h"
+#include "ССircleСircusView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
