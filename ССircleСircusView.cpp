@@ -24,6 +24,7 @@
 #include "ССircleСircusDoc.h"
 #include "ССircleСircusView.h"
 #include"CCircleEditDlg.h"
+#include"CCircle.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -67,42 +68,19 @@ BOOL CCircleCircusView::PreCreateWindow(CREATESTRUCT& cs)
 
 // Рисование CAmazingcirclecircusView
 
-void CCircleCircusView
-::OnDraw(CDC* pDC)
+void CCircleCircusView::OnDraw(CDC* pDC)
 {
 	CCircleCircusDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
-	CRect rc;
-	GetClientRect(rc);
 
-	int radius = 20; // Радиус круга
-
-	// Рисуем 10 кружков
-	int maxX = rc.Width();
-	int maxY = rc.Height() ;
-	for (int i = 0; i < 10; i++)
-	{
-		std::random_device random_device; // Источник энтропии.
-		std::mt19937 generator(random_device()); // Генератор случайных чисел.
-
-		std::uniform_int_distribution<> distributionX(20, maxX - 20);
-		std::uniform_int_distribution<> distributionY(20, maxY - 20);
-
-		int x = distributionX(generator);
-		int y = distributionY(generator);;
-
-		pDC->Ellipse(x - radius, y - radius, x + radius, y + radius);
-
-
-		//int centerX = startX + i * (2 * radius + spacing); // Вычисляем координаты центра кружка
-		//int centerY = startY;
-
-		// Рисуем кружок
-	//	pDC->Ellipse(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-	}
 	// TODO: добавьте здесь код отрисовки для собственных данных
+
+	for (int i = 0; i < pDoc->circles.size();i++)
+	{
+		pDC->Ellipse(pDoc->circles[i].X() - pDoc->circles[i].R(), pDoc->circles[i].Y() - pDoc->circles[i].R(), pDoc->circles[i].X() + pDoc->circles[i].R(), pDoc->circles[i].Y() + pDoc->circles[i].R());
+	}
 }
 
 
@@ -174,37 +152,37 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 {
 	// TODO: добавьте свой код обработчика команд
 
+	CCircleCircusDoc* pDoc = GetDocument();
+
 	CDC* pDC = GetDC();
 	OnDraw(pDC);
 	
+	CRect rc;
+	GetClientRect(rc);
 
-	//int R = 9;
-	//int xc = 100;
-	//for (int i = 0; i < 2; i++)
-	//{
+	int radius = 20; // Радиус круга
 
-	//	int R1 = 0;
+	// Рисуем 10 кружков
+	int maxX = rc.Width();
+	int maxY = rc.Height();
+	for (int i = 0; i < 10; i++)
+	{
+		std::random_device random_device; // Источник энтропии.
+		std::mt19937 generator(random_device()); // Генератор случайных чисел.
 
-	//int yc;//x и y центра круга
-	//	int x1, y1;//x и y смещения
+		std::uniform_int_distribution<> distributionX(20, maxX - 20);
+		std::uniform_int_distribution<> distributionY(20, maxY - 20);
 
-	//		std::random_device random_device; // Источник энтропии.
-	//		std::mt19937 generator(random_device()); // Генератор случайных чисел.
-	// (Здесь берется одно инициализирующее значение, можно брать больше)
+		int x = distributionX(generator);
+		int y = distributionY(generator);;
 
-	//		std::uniform_int_distribution<> distribution1(0, 5); // Равномерное распределение [10, 20]
+		CCircle circle(x, y, radius);
 
-	//		xc += 100;
-	//		yc = xc;
+		pDoc->circles.push_back(circle);
+		//pDC->Ellipse(x - radius, y - radius, x + radius, y + radius);
 
-	//		
-	//		x1 = distribution1(generator);
-	//		y1 = x1;
-
-	//		
-
-	//	pDC->Ellipse(xc, xc, x1, y1);
-	//}
+	}
+	OnDraw(pDC);
 }
 
 

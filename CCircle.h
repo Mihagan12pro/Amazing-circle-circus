@@ -4,21 +4,22 @@ using namespace std;
 class CCircle
 {
 public:
-	int X, Y;
+	int X();
+	int Y();
 
 	int R();
 
 	bool Collision();
 
-	CCircle(int _X,int _Y,int _r);
+	CCircle(int _x,int _y,int _r);
 
 	static CCircle AddNewCircle(CCircle circle);
 
 private:
 
 	int r;
-
-	static vector<CCircle> circles;
+	int x, y;
+	
 
 
 
