@@ -13,7 +13,7 @@
 #include "ССircleСircusDoc.h"
 
 #include <propkey.h>
-
+#include<iostream>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -78,13 +78,26 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 	else
 	{
 		// Загружаем данные в массив
-		for (int i = 0; i < 10; i++)
-		{
-			int x, y, r;
-			ar >> x >> y >> r;
+		bool life = true;
 
-			CCircle circle(x, y, r);
-			circles.push_back(circle);
+		while(life)
+		{
+			try
+
+			{
+				int x, y, r;
+				ar >> x;
+				ar >> y;
+				ar >> r;
+
+				CCircle circle(x, y, r);
+				circles.push_back(circle);
+			}
+			catch (...)
+			{
+				life = false;
+			}
+				
 		}
 		CWnd* MainWnd = AfxGetMainWnd();
 		pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
