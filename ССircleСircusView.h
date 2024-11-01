@@ -24,6 +24,7 @@ protected: // создать только из сериализации
 // Атрибуты
 public:
 	CCircleCircusDoc* GetDocument() const;
+	
 
 // Операции
 public:

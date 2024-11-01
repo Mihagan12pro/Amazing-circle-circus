@@ -1,17 +1,5 @@
-﻿// Этот исходный код примеров MFC демонстрирует функционирование пользовательского интерфейса Fluent на основе MFC в Microsoft Office
-// ("Fluent UI") и предоставляется исключительно как справочный материал в качестве дополнения к
-// справочнику по пакету Microsoft Foundation Classes и связанной электронной документации,
-// включенной в программное обеспечение библиотеки MFC C++.
-// Условия лицензионного соглашения на копирование, использование или распространение Fluent UI доступны отдельно.
-// Для получения дополнительных сведений о нашей программе лицензирования Fluent UI посетите веб-сайт
-// https://go.microsoft.com/fwlink/?LinkId=238214.
-//
-// (C) Корпорация Майкрософт (Microsoft Corp.)
-// Все права защищены.
-
-// Amazing circle circusDoc.cpp: реализация класса CAmazingcirclecircusDoc 
-//
-
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <sstream>
 #include "pch.h"
 #include "framework.h"
 
@@ -21,6 +9,7 @@
 #include "CCircleCircus.h"
 #endif
 
+#include"MainFrm.h"
 #include "ССircleСircusDoc.h"
 
 #include <propkey.h>
@@ -28,7 +17,7 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
+#include<fstream>
 // CAmazingcirclecircusDoc
 
 IMPLEMENT_DYNCREATE(CCircleCircusDoc, CDocument)
@@ -60,7 +49,17 @@ BOOL CCircleCircusDoc::OnNewDocument()
 	return TRUE;
 }
 
-
+std::string readFile(const std::string& fileName) 
+{
+	std::ifstream f(fileName);
+	f.seekg(0, std::ios::end);
+	size_t size = f.tellg();
+	std::string s(size, ' ');
+	f.seekg(0);
+	f.read(&s[0], size); // по стандарту можно в C++11, по факту работает и на старых компиляторах
+	
+	return s;
+}
 
 
 // Сериализация CAmazingcirclecircusDoc
@@ -69,10 +68,26 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
-		// TODO: добавьте код сохранения
+
+		for (int i = 0; i < circles.size();i++)
+		{
+			ar << circles[i].X() << circles[i].Y() << circles[i].R();
+		}
+		
 	}
 	else
 	{
+		// Загружаем данные в массив
+		for (int i = 0; i < 10; i++)
+		{
+			int x, y, r;
+			ar >> x >> y >> r;
+
+			CCircle circle(x, y, r);
+			circles.push_back(circle);
+		}
+		CWnd* MainWnd = AfxGetMainWnd();
+		pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
 		// TODO: добавьте код загрузки
 	}
 }

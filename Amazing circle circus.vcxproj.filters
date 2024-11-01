@@ -79,7 +79,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Amazing circle circus.reg" />
+    <None Include="CircleCircus.reg" />
     <None Include="res\ribbon.mfcribbon-ms">
       <Filter>Файлы ресурсов</Filter>
     </None>

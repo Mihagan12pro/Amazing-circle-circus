@@ -17,6 +17,7 @@
 
 #include"CCircle.h"
 #include<vector>
+class CCircleCircusView;
 class CCircleCircusDoc : public CDocument
 {
 protected: // создать только из сериализации
@@ -26,6 +27,7 @@ protected: // создать только из сериализации
 // Атрибуты
 public:
 	std::vector<CCircle> circles;
+	CCircleCircusView* pView;
 // Операции
 public:
 	

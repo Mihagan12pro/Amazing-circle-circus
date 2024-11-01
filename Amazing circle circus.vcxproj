@@ -94,6 +94,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -212,7 +213,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Amazing circle circus.reg" />
+    <None Include="CircleCircus.reg" />
     <None Include="res\Amazingcirclecircus.rc2" />
     <None Include="res\ribbon.mfcribbon-ms" />
   </ItemGroup>
