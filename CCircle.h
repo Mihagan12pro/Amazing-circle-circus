@@ -10,9 +10,9 @@ class CCircle
 		int Y();
 		int R();
 
-		bool Collision();
-		CCircle(int _maxX, int _maxY, int _r,bool flag);
-	
+		bool Collision(vector<CCircle> circles);
+		CCircle(int _maxX, int _maxY, int _r);
+		CCircle::CCircle(int _x, int _y, int _r, vector<CCircle>circles);
 	
 
 	private:

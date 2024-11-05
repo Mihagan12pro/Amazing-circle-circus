@@ -64,10 +64,6 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 		{
 			ar << circles[i].X() << circles[i].Y() << circles[i].R();
 		}
-		//for ( auto &circle : *CCircle::circles) 
-		//{
-		//	std::cout << "Circle at (" << circle.X() << ", " << circle.Y() << ") with radius " << circle.R() << std::endl;
-		//}
 	}
 	else
 	{
@@ -86,7 +82,7 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 
 		
 
-				CCircle circle(x,y,r,true);
+				CCircle circle(x,y,r);
 				circles.push_back(circle);
 				
 			}

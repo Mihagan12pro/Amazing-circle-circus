@@ -171,7 +171,7 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 	{
 		
 
-		CCircle circle(maxX,maxY,radius,false);
+		CCircle circle(maxX,maxY,radius,pDoc->circles);
 		pDoc->circles.push_back(circle);
 
 
