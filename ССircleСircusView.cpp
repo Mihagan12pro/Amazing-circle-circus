@@ -28,7 +28,8 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
+#include<vector>
+using namespace std;
 
 // CAmazingcirclecircusView
 
@@ -75,11 +76,12 @@ void CCircleCircusView::OnDraw(CDC* pDC)
 	if (!pDoc)
 		return;
 
+	
 	// TODO: добавьте здесь код отрисовки для собственных данных
 
-	for (int i = 0; i < pDoc->circles.size();i++)
+	for (int i = 0; i < pDoc -> circles.size();i++)
 	{
-		pDC->Ellipse(pDoc->circles[i].X() - pDoc->circles[i].R(), pDoc->circles[i].Y() - pDoc->circles[i].R(), pDoc->circles[i].X() + pDoc->circles[i].R(), pDoc->circles[i].Y() + pDoc->circles[i].R());
+		pDC->Ellipse(pDoc -> circles[i].X() - pDoc -> circles[i].R(), pDoc -> circles[i].Y() - pDoc -> circles[i].R(), pDoc -> circles[i].X() + pDoc -> circles[i].R(), pDoc -> circles[i].Y() + pDoc -> circles[i].R());
 	}
 }
 
@@ -167,19 +169,11 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 	int maxY = rc.Height();
 	for (int i = 0; i < 10; i++)
 	{
-		std::random_device random_device; // Источник энтропии.
-		std::mt19937 generator(random_device()); // Генератор случайных чисел.
+		
 
-		std::uniform_int_distribution<> distributionX(20, maxX - 20);
-		std::uniform_int_distribution<> distributionY(20, maxY - 20);
-
-		int x = distributionX(generator);
-		int y = distributionY(generator);;
-
-		CCircle circle(x, y, radius);
-
+		CCircle circle(maxX,maxY,radius,false);
 		pDoc->circles.push_back(circle);
-		//pDC->Ellipse(x - radius, y - radius, x + radius, y + radius);
+
 
 	}
 	OnDraw(pDC);

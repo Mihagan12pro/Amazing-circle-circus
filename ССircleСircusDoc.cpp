@@ -18,6 +18,8 @@
 #define new DEBUG_NEW
 #endif
 #include<fstream>
+#include<vector>
+using namespace std;
 // CAmazingcirclecircusDoc
 
 IMPLEMENT_DYNCREATE(CCircleCircusDoc, CDocument)
@@ -49,17 +51,7 @@ BOOL CCircleCircusDoc::OnNewDocument()
 	return TRUE;
 }
 
-std::string readFile(const std::string& fileName) 
-{
-	std::ifstream f(fileName);
-	f.seekg(0, std::ios::end);
-	size_t size = f.tellg();
-	std::string s(size, ' ');
-	f.seekg(0);
-	f.read(&s[0], size); // по стандарту можно в C++11, по факту работает и на старых компиляторах
-	
-	return s;
-}
+
 
 
 // Сериализация CAmazingcirclecircusDoc
@@ -68,12 +60,14 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
-
-		for (int i = 0; i < circles.size();i++)
+		for (int i = 0; i < circles.size(); i++)
 		{
 			ar << circles[i].X() << circles[i].Y() << circles[i].R();
 		}
-		
+		//for ( auto &circle : *CCircle::circles) 
+		//{
+		//	std::cout << "Circle at (" << circle.X() << ", " << circle.Y() << ") with radius " << circle.R() << std::endl;
+		//}
 	}
 	else
 	{
@@ -90,8 +84,11 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 				ar >> y;
 				ar >> r;
 
-				CCircle circle(x, y, r);
+		
+
+				CCircle circle(x,y,r,true);
 				circles.push_back(circle);
+				
 			}
 			catch (...)
 			{

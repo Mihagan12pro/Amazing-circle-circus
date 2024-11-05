@@ -26,11 +26,11 @@ protected: // создать только из сериализации
 
 // Атрибуты
 public:
-	std::vector<CCircle> circles;
+	//std::vector<CCircle> circles;
 	CCircleCircusView* pView;
 // Операции
 public:
-	
+	vector<CCircle>circles;
 // Переопределение
 public:
 	virtual BOOL OnNewDocument();
