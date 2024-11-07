@@ -71,13 +71,14 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 	{
 		// Загружаем данные в массив
 		bool life = true;
-
+		int n = -1;
 		while(life)
 		{
+			n++;
 			try
 
 			{
-				int x, y, r;
+				/*int x, y, r;
 				ar >> x;
 				ar >> y;
 				ar >> r;
@@ -85,7 +86,15 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 		
 
 				CCircle circle(x,y,r);
-				circles.push_back(circle);
+				circles.push_back(circle);*/
+				if (n >= 1)
+				{
+					CCircle circle;
+					circle.Serialize(ar);
+
+					circles.push_back(circle);
+					
+				}
 				
 			}
 			catch (...)

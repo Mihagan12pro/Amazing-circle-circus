@@ -19,7 +19,9 @@ CCircle::CCircle(int _x, int _y, int _r)
 void CCircle::Serialize(CArchive& archive)
 {
 	if (archive.IsStoring())
+	{
 		archive >> x >> y >> r;
+	}
 	else
 	{
 		archive >> x;
@@ -28,6 +30,10 @@ void CCircle::Serialize(CArchive& archive)
 	}
 		
 
+
+}
+CCircle::CCircle()
+{
 
 }
 CCircle::CCircle(int _x, int _y, int _r, vector<CCircle>circles)
