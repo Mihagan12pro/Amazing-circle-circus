@@ -60,9 +60,11 @@ void CCircleCircusDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
+		ar << circles.size();
 		for (int i = 0; i < circles.size(); i++)
 		{
-			ar << circles[i].X() << circles[i].Y() << circles[i].R();
+			//ar << circles[i].X() << circles[i].Y() << circles[i].R();
+			circles.at(i).Serialize(ar);
 		}
 	}
 	else

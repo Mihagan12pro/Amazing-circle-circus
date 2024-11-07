@@ -8,11 +8,27 @@
 #define NO_PROBLEMS false
 using namespace std;
 
+//IMPLEMENT_SERIAL(CCircle, CObject, 1)
+
 CCircle::CCircle(int _x, int _y, int _r)
 {
 	x = _x;
 	y = _y;
 	r = _r;
+}
+void CCircle::Serialize(CArchive& archive)
+{
+	if (archive.IsStoring())
+		archive >> x >> y >> r;
+	else
+	{
+		archive >> x;
+		archive >> y;
+		archive >> r;
+	}
+		
+
+
 }
 CCircle::CCircle(int _x, int _y, int _r, vector<CCircle>circles)
 {

@@ -12,7 +12,11 @@ class CCircle
 
 		bool Collision(vector<CCircle> circles);
 		CCircle(int _maxX, int _maxY, int _r);
-		CCircle::CCircle(int _x, int _y, int _r, vector<CCircle>circles);
+		CCircle(int _x, int _y, int _r, vector<CCircle>circles);
+
+
+
+		void Serialize(CArchive& archive);
 	
 
 	private:
