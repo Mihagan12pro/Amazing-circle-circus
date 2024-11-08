@@ -171,8 +171,63 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 	{
 		
 
-		CCircle circle(maxX,maxY,radius,pDoc->circles);
+
+		int xc;
+		int yc;
+
+		bool life = true;
+
+		if (pDoc->circles.size() > 0)
+		{
+			while (life)
+			{
+				bool hasCollision = false;
+
+
+				std::random_device random_device; // Источник энтропии.
+				std::mt19937 generator(random_device()); // Генератор случайных чисел.
+
+				std::uniform_int_distribution<> distributionX(20, maxX - 20);
+				std::uniform_int_distribution<> distributionY(20, maxY - 20);
+
+				int x = distributionX(generator);
+				int y = distributionY(generator);
+
+				xc = x - radius;
+				yc = y - radius;
+
+				for (int j = 0; j < pDoc->circles.size()  ; j++)
+				{
+					if (CCircle::Collision(pDoc->circles[j], xc, yc, radius) == true)
+					{
+						hasCollision = true;
+					}
+				}
+				if (!hasCollision)
+				{
+					life = false;
+					break;
+				}
+			}
+		}
+		else
+		{
+			std::random_device random_device; // Источник энтропии.
+			std::mt19937 generator(random_device()); // Генератор случайных чисел.
+
+			std::uniform_int_distribution<> distributionX(20, maxX - 20);
+			std::uniform_int_distribution<> distributionY(20, maxY - 20);
+
+			int x = distributionX(generator);
+			int y = distributionY(generator);
+
+			xc = x - radius;
+			yc = y - radius;
+		}
+		CCircle circle(xc, yc, radius);
 		pDoc->circles.push_back(circle);
+		/*CCircle circle(maxX,maxY,radius);
+		pDoc->circles.push_back(circle);*/
 
 
 	}

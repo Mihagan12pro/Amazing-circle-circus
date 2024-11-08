@@ -6,18 +6,19 @@ class CCircle
 {
 
 	public:
+	
 		int X();
 		int Y();
 		int R();
 
-		bool Collision(vector<CCircle> circles);
-		CCircle(int _maxX, int _maxY, int _r);
-		CCircle(int _x, int _y, int _r, vector<CCircle>circle);
-		CCircle();
+		static bool Collision(CCircle circle, int _x, int _y, int _r);
+		CCircle(int _x, int _y, int _r);
+	
+		
 
 
 
-		void Serialize(CArchive& archive);
+		
 	
 
 	private:
