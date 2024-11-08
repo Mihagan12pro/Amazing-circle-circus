@@ -79,10 +79,12 @@ void CCircleCircusView::OnDraw(CDC* pDC)
 	
 	// TODO: добавьте здесь код отрисовки для собственных данных
 
-	for (int i = 0; i < pDoc -> circles.size();i++)
-	{
-		pDC->Ellipse(pDoc -> circles[i].X() - pDoc -> circles[i].R(), pDoc -> circles[i].Y() - pDoc -> circles[i].R(), pDoc -> circles[i].X() + pDoc -> circles[i].R(), pDoc -> circles[i].Y() + pDoc -> circles[i].R());
-	}
+
+		for (int i = 0; i < pDoc->circles.size();i++)
+		{
+			pDC->Ellipse(pDoc->circles[i].X() - pDoc->circles[i].R(), pDoc->circles[i].Y() - pDoc->circles[i].R(), pDoc->circles[i].X() + pDoc->circles[i].R(), pDoc->circles[i].Y() + pDoc->circles[i].R());
+		}
+	
 }
 
 
@@ -182,9 +184,7 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 		
 
 
-		int xc;
-		int yc;
-
+		int x,y;
 		bool life = true;
 
 		if (pDoc->circles.size() > 0)
@@ -200,15 +200,14 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 				std::uniform_int_distribution<> distributionX(20, maxX - 20);
 				std::uniform_int_distribution<> distributionY(20, maxY - 20);
 
-				int x = distributionX(generator);
-				int y = distributionY(generator);
+				 x = distributionX(generator);
+				 y = distributionY(generator);
 
-				xc = x - radius;
-				yc = y - radius;
+			
 
 				for (int j = 0; j < pDoc->circles.size()  ; j++)
 				{
-					if (CCircle::Collision(pDoc->circles[j], xc, yc, radius) == true)
+					if (CCircle::Collision(pDoc->circles[j], x, y, radius) == true)
 					{
 						hasCollision = true;
 					}
@@ -228,13 +227,11 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 			std::uniform_int_distribution<> distributionX(20, maxX - 20);
 			std::uniform_int_distribution<> distributionY(20, maxY - 20);
 
-			int x = distributionX(generator);
-			int y = distributionY(generator);
+			x = distributionX(generator);
+		    y = distributionY(generator);
 
-			xc = x - radius;
-			yc = y - radius;
 		}
-		CCircle circle(xc, yc, radius);
+		CCircle circle(x, y, radius);
 		pDoc->circles.push_back(circle);
 		/*CCircle circle(maxX,maxY,radius);
 		pDoc->circles.push_back(circle);*/
