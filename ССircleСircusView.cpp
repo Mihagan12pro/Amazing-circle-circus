@@ -154,10 +154,20 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 {
 	// TODO: добавьте свой код обработчика команд
 
-	CCircleCircusDoc* pDoc = GetDocument();
 
+
+	CCircleCircusDoc* pDoc = GetDocument();
 	CDC* pDC = GetDC();
-	OnDraw(pDC);
+
+	if (pDoc->circles.size() > 0)
+	{
+		pDoc->circles.clear();
+
+
+
+		Invalidate();
+	}
+
 	
 	CRect rc;
 	GetClientRect(rc);
