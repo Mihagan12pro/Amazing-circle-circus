@@ -44,8 +44,23 @@ bool CCircle::Collision(CCircle circle,int _x,int _y,int _r)
 
 }
 
-void CCircle::Move(int x2, int y2)
+void CCircle::Move(int x2, int y2,  vector<CCircle>& circles,int index)
 {
-	x = x2;
-	y = y2;
+	if (Collision(x2, y2, circles,index) == NO_PROBLEMS)
+	{
+		x = x2;
+		y = y2;
+	}
+	
+}
+bool CCircle::Collision(int x2, int y2, vector<CCircle>& circles,int index)
+{
+	for (int i = 0; i < circles.size();i++)
+	{
+		if (abs(circles[i].X() - x2) <= r && abs(circles[i].Y() - y2) <= r && index != i)
+			return COLLISION;
+
+	}
+	
+	return NO_PROBLEMS;
 }

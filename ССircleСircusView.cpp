@@ -326,7 +326,7 @@ void CCircleCircusView::OnMouseMove(UINT nFlags, CPoint point)
 		{
 
 
-			pDoc->circles.at(index).Move(x2, y2);
+			pDoc->circles.at(index).Move(x2, y2,pDoc->circles,index);
 			Invalidate();
 
 
@@ -375,7 +375,7 @@ void CCircleCircusView::OnLButtonUp(UINT nFlags, CPoint point)
 		{
 	
 
-			pDoc->circles.at(index).Move(x2, y2);
+			pDoc->circles.at(index).Move(x2, y2, pDoc->circles,index);
 			Invalidate();
 
 		
