@@ -58,6 +58,7 @@ public:
 	afx_msg void EVENT_HANDLER_AddCirclesBtn();
 	afx_msg void EVENT_HANDLER_DeleteCirclesBtn();
 	afx_msg void EVENT_HANDLER_ChangeCirclesBtn();
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // версия отладки в Amazing circle circusView.cpp

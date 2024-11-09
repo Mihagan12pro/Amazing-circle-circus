@@ -45,6 +45,7 @@ BEGIN_MESSAGE_MAP(CCircleCircusView, CView)
 	ON_COMMAND(ID_AddCirclesBtn, &CCircleCircusView::EVENT_HANDLER_AddCirclesBtn)
 	ON_COMMAND(ID_DeleteCIrclesBtn, &CCircleCircusView::EVENT_HANDLER_DeleteCirclesBtn)
 	ON_COMMAND(ID_ChangeCirclesBtn, &CCircleCircusView::EVENT_HANDLER_ChangeCirclesBtn)
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // Создание или уничтожение CAmazingcirclecircusView
@@ -256,4 +257,29 @@ void CCircleCircusView::EVENT_HANDLER_ChangeCirclesBtn()
 
 	
 	editorDlg.DoModal();
+}
+
+
+void CCircleCircusView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: добавьте свой код обработчика сообщений или вызов стандартного
+	CCircleCircusDoc* pDoc = GetDocument();
+
+	if (pDoc->circles.size() > 0)
+	{
+		for (int i = 0; i < pDoc->circles.size(); i++)
+		{
+			int r2 =sqrt( pow(pDoc->circles[i].X() - point.x, 2) + pow(pDoc->circles[i].Y() - point.y, 2));
+
+			if (r2 <= pDoc->circles[i].R())
+			{
+				
+
+				break;
+			}
+
+		}
+	}
+
+	CView::OnLButtonDown(nFlags, point);
 }
