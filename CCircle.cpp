@@ -43,3 +43,9 @@ bool CCircle::Collision(CCircle circle,int _x,int _y,int _r)
 	return COLLISION;
 
 }
+
+void CCircle::Move(int x2, int y2)
+{
+	x = x2;
+	y = y2;
+}

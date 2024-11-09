@@ -46,6 +46,8 @@ BEGIN_MESSAGE_MAP(CCircleCircusView, CView)
 	ON_COMMAND(ID_DeleteCIrclesBtn, &CCircleCircusView::EVENT_HANDLER_DeleteCirclesBtn)
 	ON_COMMAND(ID_ChangeCirclesBtn, &CCircleCircusView::EVENT_HANDLER_ChangeCirclesBtn)
 	ON_WM_LBUTTONDOWN()
+	ON_WM_MOUSEMOVE()
+	ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
 
 // Создание или уничтожение CAmazingcirclecircusView
@@ -273,7 +275,8 @@ void CCircleCircusView::OnLButtonDown(UINT nFlags, CPoint point)
 
 			if (r2 <= pDoc->circles[i].R())
 			{
-				
+				last.x = pDoc->circles[i].X();
+				last.y = pDoc->circles[i].Y();
 
 				break;
 			}
@@ -282,4 +285,84 @@ void CCircleCircusView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 
 	CView::OnLButtonDown(nFlags, point);
+}
+
+
+void CCircleCircusView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: добавьте свой код обработчика сообщений или вызов стандартного
+	//if (nFlags == MK_LBUTTON)
+	//{
+	//	int a = 1;
+	//}
+	//CCircleCircusDoc* pDoc = GetDocument();
+
+	//if (pDoc->circles.size() > 0)
+	//{
+	//	for (int i = 0; i < pDoc->circles.size(); i++)
+	//	{
+	//		int r2 = sqrt(pow(pDoc->circles[i].X() - point.x, 2) + pow(pDoc->circles[i].Y() - point.y, 2));
+
+	//		if (r2 <= pDoc->circles[i].R())
+	//		{
+
+
+	//			break;
+	//		}
+
+	//	}
+	//}
+
+	CView::OnMouseMove(nFlags, point);
+}
+
+
+void CCircleCircusView::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	// TODO: добавьте свой код обработчика сообщений или вызов стандартного
+	CCircleCircusDoc* pDoc = GetDocument();
+
+	bool isMove = false;
+	int x2, y2;
+	int index;
+
+	if (pDoc->circles.size() > 0 && last.x != NULL && last.y != NULL)
+	{
+		for (int i = 0; i < pDoc->circles.size(); i++)
+		{
+			int r2 = sqrt(pow(pDoc->circles[i].X() - last.x, 2) + pow(pDoc->circles[i].Y() - last.y, 2));
+
+			if (r2 <= pDoc->circles[i].R())
+			{
+				x2 = point.x;
+				y2 = point.y;
+
+				index = i;
+
+				isMove = true;
+				
+
+				last.x = NULL;
+				last.y = NULL;
+
+				
+
+				break;
+			}
+
+		}
+		if (isMove)
+		{
+	
+
+			pDoc->circles.at(index).Move(x2, y2);
+			Invalidate();
+
+		
+		}
+
+	}
+
+
+	CView::OnLButtonUp(nFlags, point);
 }

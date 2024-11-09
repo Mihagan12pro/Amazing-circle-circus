@@ -13,7 +13,7 @@
 //
 
 #pragma once
-
+#define LastLButtonClick last
 
 class CCircleCircusView : public CView
 {
@@ -24,7 +24,7 @@ protected: // создать только из сериализации
 // Атрибуты
 public:
 	CCircleCircusDoc* GetDocument() const;
-	
+	POINT LastLButtonClick;//Куда последний раз пользователь кликнул ЛКМ
 
 // Операции
 public:
@@ -59,6 +59,8 @@ public:
 	afx_msg void EVENT_HANDLER_DeleteCirclesBtn();
 	afx_msg void EVENT_HANDLER_ChangeCirclesBtn();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // версия отладки в Amazing circle circusView.cpp

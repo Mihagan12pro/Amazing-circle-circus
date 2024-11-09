@@ -14,7 +14,7 @@ class CCircle
 		static bool Collision(CCircle circle, int _x, int _y, int _r);
 		CCircle(int _x, int _y, int _r);
 	
-		
+		void Move(int x2, int y2);
 
 
 
