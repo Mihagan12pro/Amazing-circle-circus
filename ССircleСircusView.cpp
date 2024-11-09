@@ -48,6 +48,7 @@ BEGIN_MESSAGE_MAP(CCircleCircusView, CView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_MOUSEMOVE()
 	ON_WM_LBUTTONUP()
+	ON_WM_NCMOUSEMOVE()
 END_MESSAGE_MAP()
 
 // Создание или уничтожение CAmazingcirclecircusView
@@ -164,11 +165,13 @@ void CCircleCircusView::EVENT_HANDLER_AddCirclesBtn()//Добавляет кру
 	CCircleCircusDoc* pDoc = GetDocument();
 	CDC* pDC = GetDC();
 
+	
+
 	if (pDoc->circles.size() > 0)
 	{
 		pDoc->circles.clear();
 
-
+		last.x = last.y = NULL;
 
 		Invalidate();
 	}
@@ -290,29 +293,46 @@ void CCircleCircusView::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CCircleCircusView::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: добавьте свой код обработчика сообщений или вызов стандартного
-	//if (nFlags == MK_LBUTTON)
-	//{
-	//	int a = 1;
-	//}
-	//CCircleCircusDoc* pDoc = GetDocument();
+	if (last.x != NULL && last.y != NULL)
+	{
+		CCircleCircusDoc* pDoc = GetDocument();
+		bool isMove = false;
+		int x2, y2;
+		int index;
+		for (int i = 0; i < pDoc->circles.size(); i++)
+		{
+			int r2 = sqrt(pow(pDoc->circles[i].X() - last.x, 2) + pow(pDoc->circles[i].Y() - last.y, 2));
 
-	//if (pDoc->circles.size() > 0)
-	//{
-	//	for (int i = 0; i < pDoc->circles.size(); i++)
-	//	{
-	//		int r2 = sqrt(pow(pDoc->circles[i].X() - point.x, 2) + pow(pDoc->circles[i].Y() - point.y, 2));
+			if (r2 <= pDoc->circles[i].R())
+			{
+				x2 = point.x;
+				y2 = point.y;
 
-	//		if (r2 <= pDoc->circles[i].R())
-	//		{
+				index = i;
+
+				isMove = true;
 
 
-	//			break;
-	//		}
+				last.x = point.x;
+				last.y = point.y;
 
-	//	}
-	//}
 
+
+				break;
+			}
+
+		}
+		if (isMove)
+		{
+
+
+			pDoc->circles.at(index).Move(x2, y2);
+			Invalidate();
+
+
+		}
+
+	}
 	CView::OnMouseMove(nFlags, point);
 }
 
@@ -366,3 +386,50 @@ void CCircleCircusView::OnLButtonUp(UINT nFlags, CPoint point)
 
 	CView::OnLButtonUp(nFlags, point);
 }
+
+
+//void CCircleCircusView::OnNcMouseMove(UINT nHitTest, CPoint point)
+//{
+//	if (last.x != NULL && last.y != NULL)
+//	{
+//		CCircleCircusDoc* pDoc = GetDocument();
+//		bool isMove = false;
+//		int x2, y2;
+//		int index;
+//		for (int i = 0; i < pDoc -> circles.size(); i++)
+//		{
+//			int r2 = sqrt(pow(pDoc -> circles[i].X() - last.x, 2) + pow(pDoc -> circles[i].Y() - last.y, 2));
+//
+//			if (r2 <= pDoc -> circles[i].R())
+//			{
+//				x2 = point.x;
+//				y2 = point.y;
+//
+//				index = i;
+//
+//				isMove = true;
+//
+//
+//				last.x = point.x;
+//				last.y = point.y;
+//
+//
+//
+//				break;
+//			}
+//
+//		}
+//		if (isMove)
+//		{
+//
+//
+//			pDoc -> circles.at(index).Move(x2, y2);
+//			Invalidate();
+//
+//
+//		}
+//
+//	}
+//
+//	CView::OnNcMouseMove(nHitTest, point);
+//}
