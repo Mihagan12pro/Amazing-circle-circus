@@ -19,6 +19,7 @@
 #endif
 #include<fstream>
 #include<vector>
+#define Version1 1
 using namespace std;
 // CAmazingcirclecircusDoc
 
@@ -58,48 +59,53 @@ BOOL CCircleCircusDoc::OnNewDocument()
 
 void CCircleCircusDoc::Serialize(CArchive& ar)
 {
-{
-	if (ar.IsStoring())
 	{
-		ar << 1;
-		ar << circles.size();
-		//ar << circles.size();
-		for (int i = 0; i < circles.size(); i++)
-		{
-			//ar << circles[i].X() << circles[i].Y() << circles[i].R();
-			circles.at(i).Serialize(ar);
-			//circles[i].Serialize(ar);
-			
-		}
-		//ar.Close();
-	}
-	else
-	{
-		// Загружаем данные в массив
-		bool life = true;
-
-		while (life)
+		if (ar.IsStoring())
 		{
 
-			try
-
+			//ar << Version1;
+			for (int i = 0; i < circles.size(); i++)
 			{
-				
 
+				circles.at(i).Serialize(ar);
 			}
-			catch (...)
-			{
-				life = false;
-			}
-
+			//ar.Close();
 		}
-		CWnd* MainWnd = AfxGetMainWnd();
-		pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
-		// TODO: добавьте код загрузки
-	}
+		else
+		{
+			// Загружаем данные в массив
+			bool life = true;
+			while (life)
+			{
+				try
+				{
+					int x, y, r;
+					ar >> x >> y >> r;
+
+
+
+
+
+					CCircle circle(x, y, r);
+					circles.push_back(circle);
+				}
+				catch (...)
+				{
+					life = false;
+				}
+
+			}
+
+
+
+
+			CWnd* MainWnd = AfxGetMainWnd();
+			pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
+		}
 	}
 }
-
+		
+		// TODO: добавьте код загрузкиp
 #ifdef SHARED_HANDLERS
 
 // Поддержка для эскизов
