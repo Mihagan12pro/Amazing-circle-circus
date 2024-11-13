@@ -57,10 +57,28 @@ bool CCircle::Collision(int x2, int y2, vector<CCircle>& circles,int index)
 {
 	for (int i = 0; i < circles.size();i++)
 	{
-		if (abs(circles[i].X() - x2) <= r && abs(circles[i].Y() - y2) <= r && index != i)
+		if (abs(circles[i].X() - x2) <= 1.5*r && abs(circles[i].Y() - y2) <= 1.5*r && index != i)
 			return COLLISION;
 
 	}
 	
 	return NO_PROBLEMS;
+}
+void CCircle::Serialize(CArchive& ar)
+{
+	if (ar.IsStoring()) 
+	{
+		// Сохранение данных
+		ar << x;
+		ar << y;
+		ar << r;
+	}
+	else
+	{
+		ar >> x;
+		ar>> y;
+		ar >> r;
+		// Загрузка данных
+		
+	}
 }

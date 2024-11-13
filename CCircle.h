@@ -17,10 +17,10 @@ class CCircle
 		void Move(int x2, int y2,vector<CCircle>&circles,int index);
 
 
-
+		void Serialize(CArchive& ar);
 		
-	
-
+		//virtual ~CCircle();
+		
 	private:
 		bool Collision(int x2, int y2, vector<CCircle>& circles,int index);
 		int maxX, maxY;

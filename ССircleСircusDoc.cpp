@@ -58,59 +58,46 @@ BOOL CCircleCircusDoc::OnNewDocument()
 
 void CCircleCircusDoc::Serialize(CArchive& ar)
 {
-//{
-//	if (ar.IsStoring())
-//	{
-//		//ar << circles.size();
-//		for (int i = 0; i < circles.size(); i++)
-//		{
-//			//ar << circles[i].X() << circles[i].Y() << circles[i].R();
-//			//circles.at(i).Serialize(ar);
-//			//circles[i].Serialize(ar);
-//			ar << '\n';
-//		}
-//		ar.Close();
-//	}
-//	else
-//	{
-//		// Загружаем данные в массив
-//		bool life = true;
-//		int n = -1;
-//		while(life)
-//		{
-//			n++;
-//			try
-//
-//			{
-//				/*int x, y, r;
-//				ar >> x;
-//				ar >> y;
-//				ar >> r;
-//
-//		
-//
-//				CCircle circle(x,y,r);
-//				circles.push_back(circle);*/
-//				if (n >= 1)
-//				{
-//					/*CCircle circle;
-//					circle.Serialize(ar);*/
-//
-//					//circles.push_back(circle);
-//					
-//				}
-//				
-//			}
-//			catch (...)
-//			{
-//				life = false;
-//			}
-//				
-//		}
-//		CWnd* MainWnd = AfxGetMainWnd();
-//		pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
-//		// TODO: добавьте код загрузки
-	
+{
+	if (ar.IsStoring())
+	{
+		ar << 1;
+		ar << circles.size();
+		//ar << circles.size();
+		for (int i = 0; i < circles.size(); i++)
+		{
+			//ar << circles[i].X() << circles[i].Y() << circles[i].R();
+			circles.at(i).Serialize(ar);
+			//circles[i].Serialize(ar);
+			
+		}
+		//ar.Close();
+	}
+	else
+	{
+		// Загружаем данные в массив
+		bool life = true;
+
+		while (life)
+		{
+
+			try
+
+			{
+				
+
+			}
+			catch (...)
+			{
+				life = false;
+			}
+
+		}
+		CWnd* MainWnd = AfxGetMainWnd();
+		pView = (CCircleCircusView*)((CMainFrame*)MainWnd);
+		// TODO: добавьте код загрузки
+	}
+	}
 }
 
 #ifdef SHARED_HANDLERS
